@@ -2,7 +2,7 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export const CheckAuth = ({}) => {
-    const { user } = useSelector((state: any) => state.auth);
+    const { user } = useSelector((state: State) => state.auth);
 
     if (Object.keys(user).length > 0) {
         return <Outlet />;
