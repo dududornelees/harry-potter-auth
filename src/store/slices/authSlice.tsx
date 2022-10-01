@@ -9,8 +9,12 @@ const slice = createSlice({
         user: user,
         error: null
     },
-    reducers: {},
-    extraReducers: {}
+    reducers: {
+        handleLogin(state, { payload }) {
+            console.log(payload);
+        }
+    }
 });
 
+export const { handleLogin } = slice.actions;
 export default slice.reducer;
