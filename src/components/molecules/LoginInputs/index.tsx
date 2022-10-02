@@ -1,15 +1,7 @@
-import { useState } from "react";
 import { Input, Button } from "components";
-import { useDispatch } from "react-redux";
-import { handleLogin } from "store/slices/authSlice";
+import { Props } from "./types";
 
-export const LoginInputs = () => {
-    const dispatch = useDispatch();
-    const [data, setData] = useState({
-        user: "",
-        password: ""
-    });
-
+export const LoginInputs = ({ data, setData }: Props) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setData({
             ...data,
@@ -39,7 +31,7 @@ export const LoginInputs = () => {
                 onChange={handleChange}
             />
 
-            <Button className="w-80 h-12 font-bold" type="button" onClick={() => dispatch(handleLogin(data))}>
+            <Button className="w-80 h-12 font-bold" type="submit">
                 Entrar
             </Button>
         </div>
