@@ -1,2 +1,2 @@
 export * from "./LoginForm";
-export * from "./CharacterLst";
+export * from "./CharacterList";
