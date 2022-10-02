@@ -11,6 +11,7 @@ const slice = createSlice({
     reducers: {
         handleLogin(state, { payload }) {
             const { user, password } = payload;
+
             if (user === "admin" && password === "admin") {
                 state.user = { username: "admin", firstName: "Admin", authenticated: true };
                 sessionStorage.setItem("user-info", JSON.stringify(state.user));
@@ -18,9 +19,13 @@ const slice = createSlice({
             } else {
                 state.error = "Usuário e senha não existem.";
             }
+        },
+        handleLogout(state) {
+            state.user = {};
+            sessionStorage.removeItem("user-info");
         }
     }
 });
 
-export const { handleLogin } = slice.actions;
+export const { handleLogin, handleLogout } = slice.actions;
 export default slice.reducer;
